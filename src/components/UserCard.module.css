@@ -1,0 +1,47 @@
+.card {
+  background: #0d1117;
+  border: 1px solid #1e2d3d;
+  border-left: 3px solid var(--role-border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 0 24px -4px color-mix(in srgb, var(--role-border) 30%, transparent); }
+
+.header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.avatar { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 14px; font-weight: 700; flex-shrink: 0; }
+.meta { flex: 1; min-width: 0; }
+.name { font-size: 16px; font-weight: 600; color: #f1f5f9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sub { margin-top: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.badge { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; }
+.dept { font-size: 12px; color: #475569; font-family: var(--font-mono); }
+.statusBlock { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.statusDot { width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 6px currentColor; }
+.statusLabel { font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.chip { background: #111827; border: 1px solid #1e2d3d; border-radius: 100px; padding: 3px 10px; font-family: var(--font-mono); font-size: 11px; color: #64748b; }
+
+.insightArea { min-height: 42px; }
+
+.btnGenerate { display: inline-flex; align-items: center; gap: 7px; background: transparent; border: 1px solid #22c55e55; border-radius: 6px; color: #22c55e; font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: .06em; padding: 8px 16px; cursor: pointer; text-transform: uppercase; transition: all .15s; }
+.btnGenerate:hover { background: #22c55e18; border-color: #22c55e; box-shadow: 0 0 14px -4px #22c55e88; }
+
+.loading { display: flex; align-items: center; gap: 10px; padding: 10px 0; font-family: var(--font-mono); font-size: 12px; color: #475569; }
+.spinner { width: 14px; height: 14px; border: 2px solid #1e2d3d; border-top-color: #22c55e; border-radius: 50%; animation: spin .7s linear infinite; flex-shrink: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.dots::after { content: '...'; animation: dots 1.4s steps(4,end) infinite; display: inline-block; width: 1.5em; overflow: hidden; vertical-align: bottom; }
+@keyframes dots { 0%{width:0} 25%{width:.4em} 50%{width:.9em} 75%{width:1.3em} 100%{width:0} }
+
+.error { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: #1a0a0a; border: 1px solid #ef444433; border-radius: 6px; font-size: 12px; color: #f87171; font-family: var(--font-mono); flex-wrap: wrap; }
+.btnRetry { margin-left: auto; background: transparent; border: 1px solid #ef444455; border-radius: 4px; color: #f87171; font-family: var(--font-mono); font-size: 11px; padding: 3px 10px; cursor: pointer; transition: all .15s; }
+.btnRetry:hover { background: #ef444422; }
+
+.result { background: #0a1628; border: 1px solid #1e3a5f; border-radius: 6px; padding: 14px 16px; animation: fadeUp .3s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+.resultLabel { display: flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: #3b82f6; margin-bottom: 8px; font-weight: 700; }
+.pulseDot { width: 6px; height: 6px; background: #3b82f6; border-radius: 50%; animation: pulse 2s ease infinite; }
+@keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 #3b82f666} 50%{opacity:.7;box-shadow:0 0 0 4px #3b82f600} }
+.resultText { font-size: 13.5px; line-height: 1.65; color: #cbd5e1; }
+.btnRegen { margin-top: 10px; background: transparent; border: none; color: #3b82f6; font-family: var(--font-mono); font-size: 11px; cursor: pointer; padding: 0; opacity: .7; transition: opacity .15s; }
+.btnRegen:hover { opacity: 1; }
