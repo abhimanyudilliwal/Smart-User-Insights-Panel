@@ -26,7 +26,7 @@ An AI-powered user analytics dashboard that provides deep, structured insights i
 
 ### Prerequisites
 
-[Node.js](https://nodejs.org/) (v18 or higher recommended)
+[Node.js](https://nodejs.org/) (v22 or higher recommended)
 [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
 ### Installation
