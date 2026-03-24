@@ -11,7 +11,7 @@ export default function App() {
           Smart User<br /><span style={{ color: "var(--green)" }}>Insights</span> Panel
         </h1>
         <p style={{ marginTop: 10, fontSize: 14, color: "var(--muted)", fontFamily: "var(--font-mono)" }}>
-          AI-powered profile analysis · llama-3.3-70b-versatile
+          AI-powered profile analysis · llama-3.3-70b-versatile.
         </p>
         <div style={{ marginTop: 24, height: 1, background: "linear-gradient(90deg,#22c55e33,transparent)" }} />
       </header>
