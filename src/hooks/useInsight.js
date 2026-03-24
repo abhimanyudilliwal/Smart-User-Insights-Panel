@@ -4,28 +4,24 @@ import { buildPrompt } from "../utils/prompt";
 const STORAGE_KEY = (id) => `insight_user_${id}`;
 
 async function fetchInsight(user, signal) {
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-  const model = "gemini-2.0-flash";  // free tier model
+  const apiKey = import.meta.env.VITE_GROQ_API_KEY;
 
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
-    {
-      method: "POST",
-      signal,
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [{ text: buildPrompt(user) }],
-          },
-        ],
-        generationConfig: {
-          maxOutputTokens: 200,
-          temperature: 0.7,
-        },
-      }),
-    }
-  );
+  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    signal,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "llama-3.3-70b-versatile",  // free model on Groq
+      max_tokens: 200,
+      temperature: 0.9,
+      messages: [
+        { role: "user", content: buildPrompt(user) }
+      ],
+    }),
+  });
 
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
@@ -33,8 +29,8 @@ async function fetchInsight(user, signal) {
   }
 
   const data = await res.json();
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-  if (!text) throw new Error("Empty response from Gemini");
+  const text = data?.choices?.[0]?.message?.content;
+  if (!text) throw new Error("Empty response from Groq");
   return text.trim();
 }
 

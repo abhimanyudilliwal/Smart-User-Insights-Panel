@@ -6,14 +6,12 @@ export default function App() {
   return (
     <div style={{ maxWidth: 780, margin: "0 auto", padding: "48px 24px 80px" }}>
       <header style={{ marginBottom: 48 }}>
-        <p style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.2em", color: "var(--green)", textTransform: "uppercase", marginBottom: 12 }}>
-          // system.users — v2.4.1
-        </p>
+
         <h1 style={{ fontSize: "clamp(28px,5vw,42px)", fontWeight: 800, lineHeight: 1.1, color: "#f8fafc", letterSpacing: "-0.02em" }}>
           Smart User<br /><span style={{ color: "var(--green)" }}>Insights</span> Panel
         </h1>
         <p style={{ marginTop: 10, fontSize: 14, color: "var(--muted)", fontFamily: "var(--font-mono)" }}>
-          AI-powered profile analysis · claude-sonnet-4
+          AI-powered profile analysis · llama-3.3-70b-versatile
         </p>
         <div style={{ marginTop: 24, height: 1, background: "linear-gradient(90deg,#22c55e33,transparent)" }} />
       </header>
